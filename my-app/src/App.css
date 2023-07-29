@@ -39,7 +39,7 @@ nav a{
     align-items: center;
   }
   
-  .cartItem {
+  .cartItems{
     width: 700px;
     height: 250px;
     display: flex;
@@ -50,11 +50,11 @@ nav a{
     margin: 30px;
   }
   
-  .cartItem img {
+  .cartItems img {
     width: 200px;
   }
   
-  .cartItem .description {
+  .cartItems .description {
     width: 100%;
     font-size: 30px;
   }
@@ -159,3 +159,4 @@ nav a{
 ::-webkit-scrollbar-thumb:hover {
   background: #9f9d9d;
 }
+

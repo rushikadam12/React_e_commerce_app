@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import {PRODUCTS} from '../assets/Products';
 import { createContext } from "react";
 export const shopConText=createContext();
@@ -15,10 +14,13 @@ const DefaultItemid=()=>{
 
     const [conItems,setconItems]=useState(DefaultItemid());
     const addToCart=(itemId)=>{
+       
         setconItems((prev)=>({
             ...prev,
             [itemId]:prev[itemId]+1,
         }));
+    
+        console.log(conItems)
         
     }
     const RemoveToCart=(itemId)=>{
@@ -26,14 +28,22 @@ const DefaultItemid=()=>{
             ...prev,
             [itemId]:prev[itemId]-1,
         }));
+      
         
     }
-
-const CartItemContext={conItems,addToCart,RemoveToCart};
+    const UpdateNumber=(NewAmount,ItemID)=>{
+        setconItems((prev)=>({
+            ...prev,
+            [ItemID]:NewAmount,
+        }))
+    }
+    
+  
+const CartItemContext={conItems,addToCart,RemoveToCart,UpdateNumber};
 
     return(
         <shopConText.Provider value={CartItemContext}>
-            {props.childern}
+            {props.children}
         </shopConText.Provider>
     );
 }

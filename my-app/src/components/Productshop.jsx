@@ -17,7 +17,7 @@ const ProductShop = (props) => {
                 <p><b>₹{price}</b></p>
            
             <button className='addToCartBttn' onClick={()=>(addToCart(id))}>Add to cart
-             {cartItemAmount>0&&<>(cartItemAmount)</>}
+             {cartItemAmount>0&&<>({cartItemAmount})</>}
             </button>
             </div>
             </div>
