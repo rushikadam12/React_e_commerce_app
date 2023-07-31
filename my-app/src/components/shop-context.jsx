@@ -13,6 +13,17 @@ const DefaultItemid=()=>{
  const ShopCartConstProvider=(props)=>{
 
     const [conItems,setconItems]=useState(DefaultItemid());
+    const CalculateTotalPrice=()=>{
+        let totalvalue=0;
+        for(const item in conItems){
+            if(conItems[item]>0){
+                let ValueCheck=PRODUCTS.find((product)=>product.id===Number(item));
+                totalvalue+=conItems[item]*ValueCheck.price;
+            }
+        }
+        return totalvalue;
+
+    }
     const addToCart=(itemId)=>{
        
         setconItems((prev)=>({
@@ -39,7 +50,7 @@ const DefaultItemid=()=>{
     }
     
   
-const CartItemContext={conItems,addToCart,RemoveToCart,UpdateNumber};
+const CartItemContext={conItems,addToCart,RemoveToCart,UpdateNumber,CalculateTotalPrice};
 
     return(
         <shopConText.Provider value={CartItemContext}>
